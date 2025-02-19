@@ -21,7 +21,8 @@ class UserController extends Controller
             'phone' => 'required',
         ]);
 
-        $uniqueLink = url('/link/' . Str::random(16));
+        $token = Str::random(16);
+        $uniqueLink = '/link/' . $token;
 
         $user = User::create([
             'username' => $request->username,
@@ -35,7 +36,7 @@ class UserController extends Controller
 
     public function showPageA($token)
     {
-        $user = User::where('unique_link', url("/link/{$token}"))->firstOrFail();
+        $user = User::where('unique_link', "/link/{$token}")->firstOrFail();
 
         if (Carbon::now()->greaterThan($user->link_expires_at)) {
             return abort(403, 'Link expired');
@@ -46,10 +47,13 @@ class UserController extends Controller
 
     public function generateNewLink($token)
     {
-        $user = User::where('unique_link', url("/link/{$token}"))->firstOrFail();
+        var_dump($token);
+        $user = User::where('unique_link', "/link/{$token}")->firstOrFail();
+        var_dump($user);
+        $newToken = Str::random(16);
 
         $user->update([
-            'unique_link' => url('/link/' . Str::random(16)),
+            'unique_link' => '/link/' . $newToken,
             'link_expires_at' => Carbon::now()->addDays(7),
         ]);
 
@@ -58,7 +62,7 @@ class UserController extends Controller
 
     public function deactivateLink($token)
     {
-        $user = User::where('unique_link', url("/link/{$token}"))->firstOrFail();
+        $user = User::where('unique_link', "/link/{$token}")->firstOrFail();
 
         $user->update([
             'unique_link' => null,
