@@ -32,6 +32,13 @@ Run migrations to set up database tables:
 php artisan migrate
 ```
 
+### Start the Application
+Run the local development server:
+
+```sh
+php artisan serve
+```
+
 ### Caching & Queue Configuration
 To use file-based cache and sync queues, update .env:
 ```ini
@@ -39,13 +46,6 @@ CACHE_DRIVER=file
 QUEUE_CONNECTION=sync
 ```
 If you prefer Redis or Memcached, make sure to configure docker-compose.yaml
-
-### Start the Application
-Run the local development server:
-
-```sh
-php artisan serve
-```
 
 ### 🛠 Features
 - User Registration: Username & phone number with a unique link.
