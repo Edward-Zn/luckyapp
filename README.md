@@ -47,7 +47,7 @@ php artisan serve
 ### Caching & Queue Configuration
 To use file-based cache and sync queues, update .env:
 ```ini
-CACHE_DRIVER=file
+CACHE_STORE=file
 QUEUE_CONNECTION=sync
 ```
 If you prefer Redis or Memcached, make sure to configure docker-compose.yaml
