@@ -32,6 +32,11 @@ Run migrations to set up database tables:
 php artisan migrate
 ```
 
+To populate the database, run:
+
+```sh
+php artisan db:seed --class=UserSeeder
+```
 ### Start the Application
 Run the local development server:
 
