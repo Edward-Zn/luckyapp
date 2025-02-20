@@ -12,4 +12,6 @@
     <button type="submit">Deactivate Link</button>
 </form>
 
-<button onclick="window.location.href='/lucky'">I'm Feeling Lucky</button>
+<button onclick="window.location.href='/lucky'">I'm Feeling Lucky!</button>
+
+<p><button onclick="window.location.href='/'">New User</button><p>
