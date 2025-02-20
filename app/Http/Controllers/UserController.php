@@ -47,9 +47,7 @@ class UserController extends Controller
 
     public function generateNewLink($token)
     {
-        var_dump($token);
         $user = User::where('unique_link', "/link/{$token}")->firstOrFail();
-        var_dump($user);
         $newToken = Str::random(16);
 
         $user->update([
