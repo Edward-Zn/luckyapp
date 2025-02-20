@@ -15,6 +15,10 @@ Copy the .env.example file to .env and configure your environment:
 ```sh
 cp .env.example .env
 ```
+Then, generate the application key:
+```sh
+php artisan key:generate
+```
 ### Configure Database
 Since SQLite is required, create an SQLite database file:
 
